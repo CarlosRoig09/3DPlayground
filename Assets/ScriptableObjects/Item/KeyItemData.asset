@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e759197c77e66344bba7ab920702f58f, type: 3}
+  m_Name: KeyItemData
+  m_EditorClassIdentifier: 
+  Name: Key
+  Description: 
+  prefab: {fileID: 2871557893658470006, guid: ad3f438d9f52bde4fa39eb668b7c6d0d, type: 3}
+  IconId: 1
+  Position: {x: -0.00074, y: 0.000121, z: 0.00005475785}
+  Rotation: {x: -0.35515964, y: 0.5230516, z: 0.53123796, w: 0.56397235}
+  Clip: {fileID: 8300000, guid: ddd46e0fe5b026044b4b3a26a1ad0e8f, type: 3}
+  Interactable: 1
+  Script: {fileID: 0}
+  Type: 0
+  Id: 1

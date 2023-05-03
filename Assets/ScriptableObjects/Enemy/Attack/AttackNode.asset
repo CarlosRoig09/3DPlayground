@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba67ab055c521748bd0af14cc14541e, type: 3}
   m_Name: AttackNode
   m_EditorClassIdentifier: 
-  type: 1
+  type: 0
   parent: {fileID: 11400000, guid: 8b59efbe293b8294fa28a2c668dbf7e4, type: 2}
   children:
-  - {fileID: 11400000}
   - {fileID: 11400000, guid: 8b59efbe293b8294fa28a2c668dbf7e4, type: 2}
   action: {fileID: 11400000, guid: 845180dc51c704944a6a370d82f8707e, type: 2}
   cond: {fileID: 11400000, guid: cef64157db3a35841966888448729428, type: 2}

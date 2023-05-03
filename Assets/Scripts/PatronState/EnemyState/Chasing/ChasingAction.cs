@@ -19,7 +19,7 @@ public class ChasingAction : ScriptableActionTree
 
     public override void OnUpdate()
     {
-        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 4, ~_toIgnore));
+        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 7, ~_toIgnore));
         Vector3 directonToLook = _playerTransform.position;
         directonToLook.y =0f;
         _transform.LookAt(directonToLook);

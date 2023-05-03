@@ -21,7 +21,7 @@ public class EnemyController : StateTreeController
     [SerializeField]
     private float _waitPatrolTime;
     [SerializeField]
-    private float _attackDuration;
+    private float _attackWaitTime;
     [SerializeField]
     private float _hitDuration;
     [SerializeField]
@@ -46,6 +46,11 @@ public class EnemyController : StateTreeController
         _rb = GetComponent<Rigidbody>();
         _currentHp = _maxHp;
         statetoPlay = currentState;
+        _anim = GetComponent<Animator>();
+        _upIdleLayer = 1;
+        _searchinLayer = 2;
+        _upAttentionLayer = 3;
+        _fireLayer = 4;
         SetData("Wait", false);
         SetData("Detected", false);
         SetData("PatrolPositions", _patrolPositions);
@@ -57,12 +62,13 @@ public class EnemyController : StateTreeController
         SetData("Attack", false);
         SetData("RunSpeed", _runSpeed);
         SetData("ToIgnore", _ToIgnore);
-        SetData("AttackDuration", _attackDuration);
+        SetData("AttackDuration", _attackWaitTime);
         SetData("Hit", false);
         SetData("HitDuration", _hitDuration);
         SetData("HP", _currentHp);
         SetData("Animator", _anim);
         SetData("FireLayer", _fireLayer);
+        SetData("AttackWaitTime", _attackWaitTime);
     }
 
     private void Start()
@@ -72,11 +78,6 @@ public class EnemyController : StateTreeController
             patrolAction.CurrentWaypointIndex = 0;
         }
         transform.position = _patrolPositions[0];
-        _anim= GetComponent<Animator>();
-        _upIdleLayer = 1;
-        _searchinLayer = 2;
-        _upAttentionLayer= 3;
-        _fireLayer= 4;
         _attentionLayerTime = 0;
     }
     // Update is called once per frame
@@ -85,7 +86,7 @@ public class EnemyController : StateTreeController
         base.Update();
         if(_playerDetected)
         {
-            if (!Physics.Raycast(transform.position, target.transform.position - transform.position, 10, ~_ToIgnore))
+            if (!Physics.Raycast(transform.position, target.transform.position - transform.position, 15, ~_ToIgnore))
             {
                 _playerDetected = false;
                 SetData("Detected", _playerDetected);

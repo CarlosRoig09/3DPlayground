@@ -13,6 +13,7 @@ public class AttackAction : ScriptableActionTree
     private LayerMask _toIgnore;
     private int _fireLayer;
     private EnemyController _script;
+    private float _attackWaitTime;
     public override void OnFinishedState()
     {
        // _anim.SetBool("Attack", false);
@@ -21,14 +22,16 @@ public class AttackAction : ScriptableActionTree
 
     public override void OnUpdate()
     {
-        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 4, ~_toIgnore));
-        if (!(bool)sc.GetData("Wait"))
+        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 7, ~_toIgnore));
+        if ((bool)sc.GetData("Wait"))
         {
-            _transform.LookAt(_playerTransform.position);
+            Vector3 directionToLook = _playerTransform.position;
+            directionToLook.y = 0;
+            _transform.LookAt(directionToLook);
         }
         else
         {
-            _script.WaitTime((float)sc.GetData("AttackDuration"));
+            _script.WaitTime(_attackWaitTime);
             _anim.SetLayerWeight(_fireLayer, 1);
         }
     }
@@ -42,6 +45,8 @@ public class AttackAction : ScriptableActionTree
         _toIgnore = (LayerMask)sc.GetData("ToIgnore");
         _fireLayer = (int)sc.GetData("FireLayer");
         _anim = (Animator)sc.GetData("Animator");
+        _attackWaitTime = (float)sc.GetData("AttackWaitTime");
+        sc.SetData("Wait", false);
     }
 
 }

@@ -25,7 +25,6 @@ public class HitAction : ScriptableActionTree
     {
         base.OnSetState(sc);
         _anim = (Animator)sc.GetData("Animator");
-        sc.SetData("Wait", true);
         _anim.SetBool("Hit", true);
         var script = (EnemyController)sc.GetData("Script");
         script.WaitTime((float)sc.GetData("HitDuration"));

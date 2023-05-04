@@ -834,25 +834,25 @@ AnimatorController:
       m_Motion: {fileID: 7400000, guid: e48a7b366bcd8eb4c8381c9bdb8a33cf, type: 2}
     - serializedVersion: 2
       m_State: {fileID: -8988604044988387636}
-      m_Motion: {fileID: 7400000, guid: e48a7b366bcd8eb4c8381c9bdb8a33cf, type: 2}
+      m_Motion: {fileID: -203655887218126122, guid: 4e26dca4bc7f8be428be8e154e128725, type: 3}
     - serializedVersion: 2
       m_State: {fileID: -4124176155516957845}
-      m_Motion: {fileID: 7400000, guid: e48a7b366bcd8eb4c8381c9bdb8a33cf, type: 2}
+      m_Motion: {fileID: -203655887218126122, guid: 4e26dca4bc7f8be428be8e154e128725, type: 3}
     - serializedVersion: 2
       m_State: {fileID: -6499953221121829596}
-      m_Motion: {fileID: 7400000, guid: e48a7b366bcd8eb4c8381c9bdb8a33cf, type: 2}
+      m_Motion: {fileID: -203655887218126122, guid: 4e26dca4bc7f8be428be8e154e128725, type: 3}
     - serializedVersion: 2
       m_State: {fileID: -5059685560486785500}
       m_Motion: {fileID: 0}
     - serializedVersion: 2
       m_State: {fileID: 4313454670302974004}
-      m_Motion: {fileID: 7400000, guid: e48a7b366bcd8eb4c8381c9bdb8a33cf, type: 2}
+      m_Motion: {fileID: -203655887218126122, guid: 4e26dca4bc7f8be428be8e154e128725, type: 3}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 0
     m_DefaultWeight: 0
     m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 1
+    m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: InjuredDown

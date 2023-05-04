@@ -15,6 +15,8 @@ MonoBehaviour:
   type: 0
   parent: {fileID: 0}
   children:
+  - {fileID: 11400000, guid: 09461ce5e1c19094486782bc674799f4, type: 2}
+  - {fileID: 11400000, guid: b1869571f9478054bbb35715de02c967, type: 2}
   - {fileID: 11400000, guid: 769b4bb4b650f5b45ae33f295d4a430d, type: 2}
   action: {fileID: 11400000, guid: 70db7004aa04bb849b5d582b12b8cc7e, type: 2}
   cond: {fileID: 11400000, guid: 8b708255e04f27f4e879079027e2ac83, type: 2}

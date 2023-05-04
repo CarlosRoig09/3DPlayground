@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : StateTreeController
+public class EnemyController : StateTreeController, IDamagable
 {
-    private List<Collider> _colliders = new();
     [SerializeField] 
     private float _maxHp;
     [SerializeField]
@@ -79,6 +78,7 @@ public class EnemyController : StateTreeController
         }
         transform.position = _patrolPositions[0];
         _attentionLayerTime = 0;
+        transform.Find("PlayerDetector").GetComponent<PlayerDetector>().playerDetected += DetectPlayer;
     }
     // Update is called once per frame
     protected override void Update()
@@ -145,16 +145,27 @@ public class EnemyController : StateTreeController
         SetData("Wait", false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ModifyLife(float damage)
+    {
+        _currentHp += damage;
+        SetData("Hit", true);
+    }
+
+    private void DetectPlayer(GameObject player)
     {
         _playerDetected = true;
         SetData("Detected", _playerDetected);
-        target = other.gameObject;
-        SetData("TargetTransformm",target.transform);
+        target = player;
+         SetData("TargetTransformm", target.transform);
     }
 
     private void OnDestroy()
     {
         SetData("Script", null);
+    }
+
+    public void Death()
+    {
+        throw new System.NotImplementedException();
     }
 }

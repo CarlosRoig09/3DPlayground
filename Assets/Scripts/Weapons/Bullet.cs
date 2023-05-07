@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.TryGetComponent<IDamagable>(out var enemy))
         {
-            enemy.ModifyLife(_damage);
+            enemy.ModifyLife(_damage*-1);
         }
         Destroy(gameObject);
     }

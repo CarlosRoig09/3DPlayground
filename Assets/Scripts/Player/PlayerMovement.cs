@@ -341,7 +341,7 @@ public class PlayerMovement : MonoBehaviour, IDamagable
     Vector3 MovementAction()
     {
         transform.GetChild(1).rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
-        if (_checkIfGround.IsGround||_controller.isGrounded) {
+        //if (_checkIfGround.IsGround||_controller.isGrounded) {
         Vector2 horizontal = _moveAction.ReadValue<Vector2>();
         if (horizontal.magnitude > 0)
         {
@@ -351,7 +351,7 @@ public class PlayerMovement : MonoBehaviour, IDamagable
             transform.rotation = Quaternion.Euler(0, rotation, 0);
             return Quaternion.Euler(0, rotation, 0) * Vector3.forward;
            }
-        }
+        //}
         return Vector3.zero;
     }
     void JumpAction()

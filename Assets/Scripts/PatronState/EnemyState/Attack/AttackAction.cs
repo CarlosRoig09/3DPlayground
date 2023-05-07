@@ -16,13 +16,12 @@ public class AttackAction : ScriptableActionTree
     private float _attackWaitTime;
     public override void OnFinishedState()
     {
-       // _anim.SetBool("Attack", false);
         Debug.Log("AttackFinished");
     }
 
     public override void OnUpdate()
     {
-        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 7, ~_toIgnore));
+        sc.SetData("Attack", Physics.Raycast(_transform.position, _playerTransform.position - _transform.position, 5.5f, ~_toIgnore));
         if ((bool)sc.GetData("Wait"))
         {
             Vector3 directionToLook = _playerTransform.position;

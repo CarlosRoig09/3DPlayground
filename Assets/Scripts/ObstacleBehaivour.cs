@@ -43,4 +43,9 @@ public class ObstacleBehaivour : MonoBehaviour, ICanBeImpulse
     {
         return new Vector3(impulse.x * _rb.velocity.x, impulse.y * _rb.velocity.y, impulse.z * _rb.velocity.z);
     }
+
+    public void OnHit()
+    {
+        throw new System.NotImplementedException();
+    }
 }

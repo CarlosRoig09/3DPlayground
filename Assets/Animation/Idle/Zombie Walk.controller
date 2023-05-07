@@ -290,12 +290,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: Life
     m_EventTreshold: 0.1
-  - m_ConditionMode: 3
-    m_ConditionEvent: MovementZ
-    m_EventTreshold: 0.1
-  - m_ConditionMode: 4
-    m_ConditionEvent: MovementZ
-    m_EventTreshold: 4.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4124176155516957845}
   m_Solo: 0
@@ -816,7 +810,7 @@ AnimatorController:
       m_Motion: {fileID: 0}
     - serializedVersion: 2
       m_State: {fileID: 4313454670302974004}
-      m_Motion: {fileID: -203655887218126122, guid: 4e26dca4bc7f8be428be8e154e128725, type: 3}
+      m_Motion: {fileID: 7400000, guid: 215dcec5fbbf56345add5f7a7a4db5a7, type: 2}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 0
@@ -852,7 +846,7 @@ AnimatorController:
     m_SyncedLayerIndex: 0
     m_DefaultWeight: 0
     m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 0
+    m_SyncedLayerAffectsTiming: 1
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: InjuredDown
@@ -943,7 +937,7 @@ AnimatorController:
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 0
-    m_DefaultWeight: 0
+    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}

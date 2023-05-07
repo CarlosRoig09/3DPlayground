@@ -2,8 +2,9 @@ using BehaivourTree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyController : StateTreeController, IDamagable
+public class EnemyController : StateTreeController, IDamagable, ICanBeImpulse
 {
     [SerializeField] 
     private float _maxHp;
@@ -29,8 +30,7 @@ public class EnemyController : StateTreeController, IDamagable
     private float _smothAnim;
     private Rigidbody _rb;
     private Animator _anim;
-    private int _upIdleLayer;
-    private int _searchinLayer;
+    private NavMeshAgent _enemyAgent;
     private int _upAttentionLayer;
     private int _fireLayer;
     private float _attentionLayerTime;
@@ -40,16 +40,20 @@ public class EnemyController : StateTreeController, IDamagable
     private GameObject _bullet;
     [SerializeField]
     private float _proyectileSpeed;
+    [SerializeField]
+    private GameObject _itemHolder;
+    private Collider _itemCollider;
+    private bool _noMove;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _currentHp = _maxHp;
         statetoPlay = currentState;
         _anim = GetComponent<Animator>();
-        _upIdleLayer = 1;
-        _searchinLayer = 2;
+        _enemyAgent= GetComponent<NavMeshAgent>();
         _upAttentionLayer = 3;
         _fireLayer = 4;
+        SetData("Nav", _enemyAgent);
         SetData("Wait", false);
         SetData("Detected", false);
         SetData("PatrolPositions", _patrolPositions);
@@ -68,15 +72,21 @@ public class EnemyController : StateTreeController, IDamagable
         SetData("Animator", _anim);
         SetData("FireLayer", _fireLayer);
         SetData("AttackWaitTime", _attackWaitTime);
+        _noMove = false;
     }
 
     private void Start()
     {
+        if (_itemHolder.transform.childCount>0)
+        {
+            _itemCollider = _itemHolder.transform.GetChild(0).GetComponent<Collider>();
+            _itemCollider.enabled = false;
+        }
         if (currentState.action is PatrolAction patrolAction)
         {
             patrolAction.CurrentWaypointIndex = 0;
         }
-        transform.position = _patrolPositions[0];
+       transform.position = _patrolPositions[0];
         _attentionLayerTime = 0;
         transform.Find("PlayerDetector").GetComponent<PlayerDetector>().playerDetected += DetectPlayer;
     }
@@ -92,7 +102,10 @@ public class EnemyController : StateTreeController, IDamagable
                 SetData("Detected", _playerDetected);
             }
         }
-        Animations();
+        if (!_noMove)
+        {
+            Animations();
+        }
     }
 
     public void StartAttack()
@@ -109,8 +122,8 @@ public class EnemyController : StateTreeController, IDamagable
 
     private void Animations()
     {
-        _anim.SetFloat("MovementX", _rb.velocity.normalized.x);
-        _anim.SetFloat("MovementZ", _rb.velocity.normalized.z);
+        _anim.SetFloat("MovementX", _enemyAgent.velocity.normalized.x);
+        _anim.SetFloat("MovementZ", _enemyAgent.velocity.normalized.z);
         SetWeightLayer(_upAttentionLayer,_playerDetected,ref _attentionLayerTime);
     }
 
@@ -148,7 +161,9 @@ public class EnemyController : StateTreeController, IDamagable
     public void ModifyLife(float damage)
     {
         _currentHp += damage;
+        _anim.SetFloat("Life", _currentHp);
         SetData("Hit", true);
+        SetData("HP", _currentHp);
     }
 
     private void DetectPlayer(GameObject player)
@@ -165,6 +180,35 @@ public class EnemyController : StateTreeController, IDamagable
     }
 
     public void Death()
+    {
+        SetData("Hit", false);
+        _anim.SetFloat("Life", _currentHp);
+        if (_itemHolder.transform.childCount>0)
+        {
+            var item = _itemHolder.transform.GetChild(0).gameObject;
+            ParentAndChildrenMethods.UnParentAnSpecificChildren(_itemHolder, item);
+            item.transform.position = transform.position;
+            _itemCollider.enabled = true;
+        }
+        _noMove = true;
+    }
+
+    public void GetImpulse(Vector3 impulse)
+    {
+        _rb.AddForce(impulse*0.5f);
+    }
+
+    public void StopMomentum()
+    {
+        _rb.velocity = Vector3.zero;
+    }
+
+    public Vector3 TrasspassImpulse(Vector3 impulse)
+    {
+        return new Vector3(impulse.x * _rb.velocity.x, impulse.y * _rb.velocity.y, impulse.z * _rb.velocity.z);
+    }
+
+    public void OnHit()
     {
         throw new System.NotImplementedException();
     }

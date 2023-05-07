@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
             switch (SceneManager.GetActiveScene().name)
             {
                 case "GameScreen":
+                 case "demo":
                     _scene = Escenas.GameScreen;
                     break;
                 case "GameStart":

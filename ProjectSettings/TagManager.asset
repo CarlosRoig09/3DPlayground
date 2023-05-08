@@ -21,12 +21,12 @@ TagManager:
   - Inventory
   - Event
   - EndPoint
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - PlayerBullet
+  - EnemyBullet
+  - DetectPlayer
+  - FisicWeapon
+  - Obstacle
   - 
   - 
   - 

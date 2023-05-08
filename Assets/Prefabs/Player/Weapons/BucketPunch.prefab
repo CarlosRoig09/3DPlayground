@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3396385774422816512}
   - component: {fileID: -6188495164661343366}
   - component: {fileID: -4126228803567820952}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: BucketPunch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,3 +141,6 @@ MonoBehaviour:
     m_Flags: 0
   _controlInventory: {fileID: 0}
   _playerMovement: {fileID: 0}
+  proyectile:
+    serializedVersion: 2
+    m_Bits: 32768

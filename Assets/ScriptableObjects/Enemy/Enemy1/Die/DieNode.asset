@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba67ab055c521748bd0af14cc14541e, type: 3}
+  m_Name: DieNode
+  m_EditorClassIdentifier: 
+  type: 0
+  parent: {fileID: 11400000, guid: 769b4bb4b650f5b45ae33f295d4a430d, type: 2}
+  children: []
+  action: {fileID: 11400000, guid: 515ac784d9de7c94facaa8207882fe82, type: 2}
+  cond: {fileID: 11400000, guid: 51126af8a694f7b4c959571759f04797, type: 2}

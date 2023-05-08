@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour, IDamagable
     }
     private int _injuredDownLayer;
     private int _injuredUpLayer;
+    private int _hitLayer;
+    private bool _hit;
     [SerializeField]
     private GameObject _playerCamera;
     [SerializeField]
@@ -190,12 +192,10 @@ public class PlayerMovement : MonoBehaviour, IDamagable
         _anim.SetFloat("MovementX", Mathf.Abs(_moveAction.ReadValue<Vector2>()[0]) * _realSpeed);
         _anim.SetFloat("MovementZ", Mathf.Abs(_moveAction.ReadValue<Vector2>()[1]) * _realSpeed);
         _anim.SetBool("Jump", _animationJump);
-        if(Life<=50)
+        if(Life<=50&&!_crouching)
             _injured= true;
         else
             _injured= false;
-        if (_crouching)
-            _injured = false;
         
         SetWeightLayer(_injuredUpLayer, _injured, ref _animInjurUpTime);
         SetWeightLayer(_injuredDownLayer, _injured, ref _animInjurDownTime);
@@ -341,7 +341,7 @@ public class PlayerMovement : MonoBehaviour, IDamagable
     Vector3 MovementAction()
     {
         transform.GetChild(1).rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
-        if (_checkIfGround.IsGround||_controller.isGrounded) {
+        //if (_checkIfGround.IsGround||_controller.isGrounded) {
         Vector2 horizontal = _moveAction.ReadValue<Vector2>();
         if (horizontal.magnitude > 0)
         {
@@ -351,7 +351,7 @@ public class PlayerMovement : MonoBehaviour, IDamagable
             transform.rotation = Quaternion.Euler(0, rotation, 0);
             return Quaternion.Euler(0, rotation, 0) * Vector3.forward;
            }
-        }
+        //}
         return Vector3.zero;
     }
     void JumpAction()

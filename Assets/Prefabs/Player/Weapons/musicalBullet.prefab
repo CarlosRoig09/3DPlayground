@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 403383379012318786}
   - component: {fileID: 3544379548413269241}
   - component: {fileID: 2641205039105723954}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: musicalBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7647739faaf410a409ea3e2732715758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 25
 --- !u!65 &3544379548413269241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,7 +88,7 @@ GameObject:
   - component: {fileID: 8521462391064584614}
   - component: {fileID: 297145268455141978}
   - component: {fileID: 5459967482588329085}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: polySurface4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

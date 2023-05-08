@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
                 _playerData = GameObject.Find("Player");
                 UIManager.Instance.AtStartGameScene();
                 _calledStartGame = true;
-               // OnStartGame();
             }
         }
     }
@@ -66,6 +65,7 @@ public class GameManager : MonoBehaviour
             switch (SceneManager.GetActiveScene().name)
             {
                 case "GameScreen":
+                 case "demo":
                     _scene = Escenas.GameScreen;
                     break;
                 case "GameStart":

@@ -7,6 +7,8 @@ public class MeleeWeaponController : WeaponController
 {
     private MeleeWeaponData _meleeWeapon;
     private BoxCollider _boxCollider;
+    [SerializeField]
+    private LayerMask proyectile;
     protected override void Start()
     {
         base.Start();
@@ -39,6 +41,11 @@ public class MeleeWeaponController : WeaponController
             Vector3 enemyDirection = other.gameObject.transform.position - transform.position;
             enemyDirection.y *= 0.5f;
             canBeImpulse.GetImpulse(enemyDirection.normalized * _meleeWeapon.Impulse);
+           // other.gameObject.layer = proyectile;
+        }
+        if(other.TryGetComponent<IDamagable>(out var damagable))
+        {
+            damagable.ModifyLife(_meleeWeapon.Damage);
         }
     }
 }

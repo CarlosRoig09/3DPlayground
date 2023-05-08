@@ -8,6 +8,6 @@ public class ChasingCondition : ScriptableCondition
 {
     public override bool Check(StateTreeController sc)
     {
-        return (bool)sc.GetData("Detected")&&!(bool)sc.GetData("Attack");
+        return (bool)sc.GetData("Detected");
     }
 }

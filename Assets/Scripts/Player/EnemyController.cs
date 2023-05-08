@@ -125,6 +125,7 @@ public class EnemyController : StateTreeController, IDamagable, ICanBeImpulse
         _anim.SetFloat("MovementX", _enemyAgent.velocity.normalized.x);
         _anim.SetFloat("MovementZ", _enemyAgent.velocity.normalized.z);
         SetWeightLayer(_upAttentionLayer,_playerDetected,ref _attentionLayerTime);
+        _anim.SetFloat("Life", _currentHp);
     }
 
     void SetWeightLayer(int layer, bool condition, ref float currentAnimationTime)
@@ -181,8 +182,7 @@ public class EnemyController : StateTreeController, IDamagable, ICanBeImpulse
 
     public void Death()
     {
-        SetData("Hit", false);
-        _anim.SetFloat("Life", _currentHp);
+        gameObject.GetComponent<Collider>().enabled  = false;
         if (_itemHolder.transform.childCount>0)
         {
             var item = _itemHolder.transform.GetChild(0).gameObject;

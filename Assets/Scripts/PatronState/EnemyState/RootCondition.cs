@@ -7,6 +7,6 @@ public class RootCondition : ScriptableCondition
 {
     public override bool Check(StateTreeController sc)
     {
-        return !sc.currentState.Condition(sc);
+        return true;
     }
 }

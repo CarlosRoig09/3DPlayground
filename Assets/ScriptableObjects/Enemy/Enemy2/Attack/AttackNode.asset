@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: AttackNode
   m_EditorClassIdentifier: 
   type: 0
-  parent: {fileID: 11400000, guid: 8b59efbe293b8294fa28a2c668dbf7e4, type: 2}
+  parent: {fileID: 11400000, guid: e0ba65924309df04d84556af60de9ad5, type: 2}
   children:
   - {fileID: 11400000, guid: c48e663076b0ddd4d954cde8adb60ac0, type: 2}
   - {fileID: 11400000, guid: d5e6e49ed64f6c046bfa37f11c97f5e2, type: 2}
-  - {fileID: 11400000, guid: e0ba65924309df04d84556af60de9ad5, type: 2}
   action: {fileID: 11400000, guid: 2452265a8680a514783a8944cc305b73, type: 2}
   cond: {fileID: 11400000, guid: 4dcdacfd5b36aef44bbc5fdaa0794b31, type: 2}

@@ -32,6 +32,16 @@ namespace BehaivourTree
                     if (statetoPlay.action != null) statetoPlay.action.OnSetState(this);
                 }
             }
+            if (!CheckCondition(currentState)&&currentState.parent!=null)
+            {
+                if (statetoPlay != null && statetoPlay.action != null && statetoPlay != currentState.parent)
+                {
+                    statetoPlay.action.OnFinishedState();
+                }
+                statetoPlay = currentState.parent;
+                currentState = statetoPlay;
+                if (statetoPlay.action != null) statetoPlay.action.OnSetState(this);
+            }
         }
 
         public bool CheckCondition(Node node)

@@ -18,6 +18,6 @@ MonoBehaviour:
   IconId: 0
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 6e3e85fa3b011974cafb4947d219b957, type: 3}
   Interactable: 0
   LifeModificator: -100

@@ -15,9 +15,10 @@ public class HitAction : ScriptableActionTree
 
     public override void OnUpdate()
     {
-        if (!(bool)sc.GetData("Wait"))
+          if (!(bool)sc.GetData("Wait"))
         {
             sc.SetData("Hit", false);
+            Debug.Log("LeaveHit");
         }
     }
 

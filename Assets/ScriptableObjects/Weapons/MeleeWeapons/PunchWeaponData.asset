@@ -15,10 +15,10 @@ MonoBehaviour:
   Name: Punch
   Description: 
   prefab: {fileID: 3396385774420830926, guid: a4ff4151b20fe43438d1ba0a06d19c15, type: 3}
-  Icon: {fileID: 0}
+  IconId: 0
   Position: {x: -0.3100035, y: 0.000005245209, z: 0.000003755093}
   Rotation: {x: 0.043396167, y: 0.076960824, z: -0.62311494, w: -0.7771239}
-  Clip: {fileID: 8300000, guid: f9ede4d30deaa914182b3b9bf975ca6f, type: 3}
+  Clip: {fileID: 8300000, guid: 7c75a21cb41737946bd9807033b70632, type: 3}
   Interactable: 1
   Type: 1
   Script: {fileID: 0}

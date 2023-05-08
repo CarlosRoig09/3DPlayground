@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DieNode
   m_EditorClassIdentifier: 
   type: 0
-  parent: {fileID: 11400000, guid: 769b4bb4b650f5b45ae33f295d4a430d, type: 2}
+  parent: {fileID: 11400000, guid: 10af5a5940942c347b80ed527bee6f6a, type: 2}
   children: []
   action: {fileID: 11400000, guid: 963a45f04d7fb0e47a90cfcdffc7a13e, type: 2}
   cond: {fileID: 11400000, guid: a9002bc3c13164b469400341ce77a357, type: 2}

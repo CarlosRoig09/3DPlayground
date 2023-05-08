@@ -30,13 +30,10 @@ public class ObstacleBehaivour : MonoBehaviour, ICanBeImpulse
 
     private void OnCollisionEnter(Collision collision)
     {
-      /*  if(TryGetComponent<ICanBeImpulse>(out var canBeImpulse))
+         if(TryGetComponent<ICanBeImpulse>(out var canBeImpulse))
         {
-            if(canBeImpulse!=null)
-            {
-                canBeImpulse.GetImpulse(TrasspassImpulse(collision.transform.position - transform.position));
-            }
-        }*/
+            canBeImpulse?.GetImpulse(TrasspassImpulse(collision.transform.position - transform.position));
+        }
     }
 
     public Vector3 TrasspassImpulse(Vector3 impulse)

@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: HitNode
   m_EditorClassIdentifier: 
   type: 0
-  parent: {fileID: 0}
+  parent: {fileID: 11400000, guid: 769b4bb4b650f5b45ae33f295d4a430d, type: 2}
   children:
   - {fileID: 11400000, guid: 09461ce5e1c19094486782bc674799f4, type: 2}
-  - {fileID: 11400000, guid: 8b59efbe293b8294fa28a2c668dbf7e4, type: 2}
-  - {fileID: 11400000, guid: 3a2b1cdde6f89d940b514fff67dcebcc, type: 2}
   action: {fileID: 11400000, guid: b42e6af25ae86224a8d25da765d8a328, type: 2}
   cond: {fileID: 11400000, guid: 915ee90f04caba74eaf4c7aa166fccd6, type: 2}

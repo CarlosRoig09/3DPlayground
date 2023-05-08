@@ -25,7 +25,7 @@ public class ChasingAction : ScriptableActionTree
         Vector3 directonToLook = _playerTransform.position;
         directonToLook.y =0f;
         _transform.LookAt(directonToLook);
-        //_rb.velocity = _speed * Time.deltaTime * (_playerTransform.position - _transform.position).normalized;
+        _nav.destination = _playerTransform.position;
     }
 
     public override void OnSetState(StateTreeController sc)
@@ -37,6 +37,7 @@ public class ChasingAction : ScriptableActionTree
         _rb = (Rigidbody)sc.GetData("Rigydbody");
         _playerTransform = (Transform)sc.GetData("TargetTransformm");
         _toIgnore = (LayerMask)sc.GetData("ToIgnore");
-        _nav.destination = _playerTransform.position;
+        _nav.isStopped = false;
+
     }
 }

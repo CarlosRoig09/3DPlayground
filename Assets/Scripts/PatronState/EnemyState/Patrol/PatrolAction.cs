@@ -56,5 +56,6 @@ public class PatrolAction : ScriptableActionTree
         _waitTime = (float)sc.GetData("WaitPatrolTime");
         _script = (EnemyController)sc.GetData("Script");
         _rb = (Rigidbody)sc.GetData("Rigydbody");
+        _nav.isStopped = false;
     }
 }

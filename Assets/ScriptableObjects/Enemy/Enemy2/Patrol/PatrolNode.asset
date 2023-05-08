@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: PatrolNode
   m_EditorClassIdentifier: 
   type: 0
-  parent: {fileID: 0}
+  parent: {fileID: 11400000, guid: 10af5a5940942c347b80ed527bee6f6a, type: 2}
   children:
   - {fileID: 11400000, guid: c48e663076b0ddd4d954cde8adb60ac0, type: 2}
   - {fileID: 11400000, guid: d5e6e49ed64f6c046bfa37f11c97f5e2, type: 2}
   - {fileID: 11400000, guid: e0ba65924309df04d84556af60de9ad5, type: 2}
-  - {fileID: 11400000, guid: 10af5a5940942c347b80ed527bee6f6a, type: 2}
   action: {fileID: 11400000, guid: f6de1b3b6067a7543b9d940ecf59497d, type: 2}
   cond: {fileID: 11400000, guid: 09e264549f466864aa396d42bf751101, type: 2}

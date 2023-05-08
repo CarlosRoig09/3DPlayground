@@ -18,7 +18,7 @@ MonoBehaviour:
   IconId: 2
   Position: {x: 0, y: 0.1, z: 0}
   Rotation: {x: 0.39064604, y: -0.570657, z: 0.60995674, w: 0.38690966}
-  Clip: {fileID: 8300000, guid: 2908ed535bc461b449f9ef2348bbc596, type: 3}
+  Clip: {fileID: 8300000, guid: e960f0c605fb949458147d829fa628fe, type: 3}
   Interactable: 1
   Type: 0
   Script: {fileID: 0}

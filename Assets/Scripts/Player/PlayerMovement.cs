@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour, IDamagable
     [SerializeField]
     private float _rotationSmoothTime;
     private CheckIfGround _checkIfGround;
+    [SerializeField]
+    private AudioClip _hitAudio;
     private bool _noMove;
     public bool GrabingCurrentItem
     {
@@ -446,8 +448,14 @@ public class PlayerMovement : MonoBehaviour, IDamagable
 
     public void ModifyLife(float damage)
     {
+
         Life += damage;
         if(Life<=0) { Death(); }
+        else
+        {
+            GameManager.Instance.ApplyAudioClipForInteraction(_hitAudio);
+            gameObject.GetComponent<AudioSource>().Play();
+        }
     }
 
     public void Death()

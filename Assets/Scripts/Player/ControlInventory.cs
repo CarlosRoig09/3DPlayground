@@ -100,6 +100,7 @@ public class ControlInventory : MonoBehaviour
                 UsableItemAction(other.gameObject.GetComponent<IWaitTillUsableItem>());
             }
             UIManager.Instance.HideEmergencyText();
+            _playerMovement.DesubrcribeEvents(new Events[] { Events.GrabItem });
         }
     }
 
